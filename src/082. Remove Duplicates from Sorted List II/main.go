@@ -11,15 +11,23 @@ func deleteDuplicates(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
-
 	dummy := new(ListNode)
 	dummy.Next = head
+
+	var dup *ListNode
 	cur := dummy
-	for cur.Next != nil && cur.Next.Next!= nil{
-		for cur.Next.Next!= nil && cur.Next.Val == cur.Next.Next.Val {
-			cur.Next.Next = cur.Next.Next.Next
+	for cur.Next != nil && cur.Next.Next != nil {
+		if cur.Next.Val == cur.Next.Next.Val {
+			dup = cur.Next
+		} else {
+			dup = nil
+			cur = cur.Next
 		}
-		cur = cur.Next
+		if dup != nil {
+			for cur.Next != nil && cur.Next.Val == dup.Next.Val {
+				cur.Next = cur.Next.Next
+			}
+		}
 	}
 	return dummy.Next
 }
