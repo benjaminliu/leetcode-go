@@ -27,10 +27,9 @@ func maxSubArray(nums []int) int {
 func main() {
 	nums := []int{-2, 1, -3, 4, -1, 2, 1, -5, 4}
 
-	//curSum       -2
-	//nums[i]          1, -3, 4, -1,  2,  1, -5,  4
-	//curSum+num[i]   -1, -2, 2,  3,  5,  6,  1,  5
-
-	//new curSum       1, -2  4,  3,  5,  6,  1,  5
+	//nums[i]          1, -3,  4, -1,  2,  1, -5,  4
+	//curSum+num[i]   -1, -2,  2,  3,  5,  6,  1,  5
+	//new curSum = max( curSum + num[i] , nums[i] )
+	//new curSum   -2  1, -2   4,  3,  5,  6,  1,  5
 	fmt.Println(maxSubArray(nums))
 }
