@@ -26,5 +26,5 @@ func singleNumber(nums []int) []int {
 func main() {
 	temp := 3 ^ 5
 	fmt.Println(temp)
-	
+
 }
