@@ -21,6 +21,29 @@ func climbStairs(n int) int {
 	return cur
 }
 
+//dp
+func climbStairs1(n int) int {
+	maps := make(map[int]int)
+	return helper(n,maps)
+}
+func helper(n int, maps map[int]int) int {
+	if n<0{
+		return 0
+	}
+	if n ==0 {
+		return 1
+	}
+
+	if value,ok:=maps[n];ok{
+		return value
+	}
+
+	value := helper(n-1,maps) + helper(n-2,maps)
+
+	maps[n] =value
+	return value
+}
+
 func main() {
 	fmt.Println(climbStairs(4))
 }
