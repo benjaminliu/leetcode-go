@@ -37,7 +37,7 @@ var base int = 1337
 
 //  (a*b)%k = ((a%k)*(b%k))%k
 // a^1234567 % k = (a^1234560 % k) * (a^7 % k) % k
-// a^1234560 % k = (a^123456 % k)^10 % k
+// a^1234560 % k = ((a^123456 % k)^10)% k
 func superPow1(a int, b []int) int {
 	n := len(b)
 	if n == 0 {
